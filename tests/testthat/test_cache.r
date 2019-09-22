@@ -1,5 +1,6 @@
 test_that("Cache is loaded successfully", {
 
+  clear_cache()
   if (!dir.exists("build")) dir.create("build")
   writeLines("test = { runif(100, 1, 1000) }", "build/test.r")
   cache(test) -> x
