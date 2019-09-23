@@ -14,7 +14,7 @@ cache_dependencies <- function(cache.name) {
   cache.name <- substitute(cache.name)
   if (class(cache.name) == "name") cache.name <- deparse(cache.name)
 
-  build.file = paste0("build/", cache.name, ".r")
+  build.file = paste0(cacher:::.get_build_dir_name(), "/", cache.name, ".r")
 
   readLines(build.file) %>%
 

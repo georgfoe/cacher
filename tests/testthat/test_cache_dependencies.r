@@ -2,20 +2,21 @@ test_that("Dependencies on other caches are retrieved correctly from build code"
           {
             clear_cache()
 
-            .create_build_dir()
+            cacher:::.create_build_dir()
+            build.dir <- cacher:::.get_build_dir_name()
 
             writeLines("test1 <- runif(100, 1, 1000)",
-                       "build/test1.r")
+                       paste0(build.dir, "/test1.r"))
 
             writeLines(c("test2 <- {",
                          "cache(test1) ^ 2",
                          "}"),
-                       "build/test2.r")
+                       paste0(build.dir, "/test2.r"))
 
             writeLines(c("test3 <- {",
                          "cache(test1) * cache(test2)",
                          "}"),
-                       "build/test3.r")
+                       paste0(build.dir, "/test3.r"))
 
             cache(test3) -> x
 
@@ -28,6 +29,6 @@ test_that("Dependencies on other caches are retrieved correctly from build code"
             expect_equal(dep3, c("test1", "test2"))
 
 
-            unlink("build", recursive = TRUE)
-            unlink("caches", recursive = TRUE)
+            unlink(cacher:::.get_build_dir_name(), recursive = TRUE)
+            unlink(cacher:::.get_cache_dir_name(), recursive = TRUE)
           })

@@ -28,3 +28,17 @@
   }
 }
 
+#' Title
+#'
+#' @return
+#'
+#' @examples
+.get_cache_dir_name <- function() {
+  default <- getOption("cache.dir")
+  if (!is.null(default)) {
+    return(default)
+  } else {
+    return("cache")
+  }
+}
+
