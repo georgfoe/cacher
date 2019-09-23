@@ -1,3 +1,14 @@
+#' Title
+#'
+#' @param cache.name
+#' @param reBuild
+#'
+#' @return
+#' @export
+#' @importFrom magrittr %>%
+#'
+#' @examples
+#'
 cache <- function(cache.name, reBuild = FALSE) {
 
   #attach(.GlobalEnv$.caches)
