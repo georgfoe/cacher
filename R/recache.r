@@ -1,3 +1,11 @@
+#' Title
+#'
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
 recache <- function(...) {
 
   #  cache.name <- substitute(cache.name)
