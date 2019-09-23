@@ -3,6 +3,7 @@
 export(cache)
 export(cache_dependencies)
 export(clear_cache)
+export(list_caches)
 export(recache)
 importFrom(magrittr,"%>%")
 importFrom(purrr,map)
