@@ -4,10 +4,10 @@
 \alias{cache_dependencies}
 \title{Title}
 \usage{
-cache_dependencies(cache.name)
+cache_dependencies(cache.names)
 }
 \arguments{
-\item{cache.name}{}
+\item{cache.names}{}
 }
 \description{
 Title
